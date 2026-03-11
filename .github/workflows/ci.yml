@@ -33,7 +33,22 @@ jobs:
         run: |
           docker build -t cloudcart-notification-service ./services/notification-service
 
-      - name: Run Trivy Vulnerability Scan
+      - name: Scan User Service
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: cloudcart-user-service
+
+      - name: Scan Product Service
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: cloudcart-product-service
+
+      - name: Scan Order Service
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: cloudcart-order-service
+
+      - name: Scan Notification Service
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: cloudcart-notification-service
